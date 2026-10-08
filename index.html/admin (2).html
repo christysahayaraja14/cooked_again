@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Oops! Life Cooked Again</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="icon-loader" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+    <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="m5 12 7 7 7-7"/><path d="M12 5v14"/></symbol>
+  </svg>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-mark-inner">O!</span></span>
+        <span class="brand-text">
+          <span class="brand-name">Oops! Life Cooked Again</span>
+          <span class="brand-sub">Admin Panel</span>
+        </span>
+      </a>
+      <div class="admin-header-actions">
+        <span id="admin-user" class="admin-user"></span>
+        <a href="index.html" class="btn btn-outline-gold btn-sm">Back to Site</a>
+        <button id="admin-logout" type="button" class="btn btn-outline-gold btn-sm">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-head">
+      <div class="admin-head-text">
+        <p class="eyebrow">Management</p>
+        <h1 class="admin-title">Site Management
+          <span id="dirty-badge" class="dirty-badge" hidden>Unsaved changes</span>
+        </h1>
+        <p id="menu-source" class="admin-source"></p>
+      </div>
+      <div id="admin-toolbar" class="admin-toolbar">
+        <button id="admin-save" type="button" class="btn btn-primary">
+          <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
+          Save Changes
+        </button>
+        <button id="admin-reset" type="button" class="btn btn-danger-outline">Reset to Defaults</button>
+      </div>
+    </div>
+
+    <div id="admin-access" class="card admin-access" hidden>
+      <div class="admin-access-icon">
+        <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+      </div>
+      <h2 class="admin-access-title">Access Denied</h2>
+      <p class="admin-access-text">Only the administrator can open this page. Redirecting you to the login portal&hellip;</p>
+      <div class="admin-access-actions">
+        <a href="login.html" class="btn btn-primary">Go to Login</a>
+        <a href="index.html" class="btn btn-outline-gold">Back to Site</a>
+      </div>
+    </div>
+
+    <div id="admin-workspace" hidden>
+      <div class="tabs admin-view-tabs" role="tablist" aria-label="Management sections">
+        <button type="button" class="tab-btn active" data-view="menu" role="tab" aria-selected="true">
+          <svg class="icon" aria-hidden="true"><use href="#icon-utensils"/></svg>Menu &amp; Prices
+        </button>
+        <button type="button" class="tab-btn" data-view="gallery" role="tab" aria-selected="false">
+          <svg class="icon" aria-hidden="true"><use href="#icon-image"/></svg>Gallery Photos
+        </button>
+      </div>
+
+      <div id="menu-view">
+        <div id="admin-tabs" class="tabs" role="tablist" aria-label="Menu categories"></div>
+        <div id="admin-editor"></div>
+      </div>
+
+      <div id="gallery-view" hidden>
+        <section class="card admin-gallery-card">
+          <h2 class="card-title">Gallery Photos (<span id="gallery-count-admin">0</span>)</h2>
+          <div id="gallery-editor"></div>
+        </section>
+      </div>
+    </div>
+
+    <section class="admin-info">
+      <h3>How publishing works</h3>
+      <p><strong>Save Changes</strong> writes your menu and gallery to Supabase &mdash; every visitor sees the new dishes, prices and photos straight away. No files to upload.</p>
+      <p><strong>Photo uploads</strong> are compressed in your browser and stored in your Supabase Storage bucket <code>gallery</code>. You can also paste any image link instead.</p>
+      <p><strong>Orders, reservations &amp; feedback</strong> arrive in the Supabase dashboard under <em>Table Editor</em> (<code>orders</code>, <code>reservations</code>, <code>feedback</code>) as well as by email.</p>
+      </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="auth.js"></script>
+  <script src="menu-store.js"></script>
+  <script src="gallery-store.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

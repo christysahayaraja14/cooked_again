@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oops! Life Cooked Again | Royal South Indian Dining in Trichy</title>
+  <meta name="description" content="Oops! Life Cooked Again — a friends-owned restaurant in Trichy serving royal South Indian breakfast, lunch combos, dinner delights, desserts & beverages. Order online or book your table today.">
+  <meta name="keywords" content="restaurant Trichy, South Indian food, biriyani, masala dosa, table booking, Oops Life Cooked Again">
+  <meta property="og:title" content="Oops! Life Cooked Again | Royal Dining in Trichy">
+  <meta property="og:description" content="Life cooked you. So we cooked for you. Royal gold-standard South Indian dining — order online or book a table now.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Reusable SVG icon symbols -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+    <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="icon-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="icon-expand" viewBox="0 0 24 24"><path d="m21 21-6-6m6 6v-4.8m0 4.8h-4.8"/><path d="M3 16.2V21m0 0h4.8M3 21l6-6"/><path d="M21 3h-4.8M21 3v4.8M21 3l-6 6"/><path d="M3 4.8V3m0 0h4.8M3 3l6 6"/></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="icon-loader" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></symbol>
+  </svg>
+
+  <!-- Toast notifications -->
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-mark-inner">O!</span></span>
+        <span class="brand-text">
+          <span class="brand-name">Oops! Life Cooked Again</span>
+          <span class="brand-sub">Trichy &middot; Est. 2026</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#best-sellers">Best Sellers</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#hours">Hours</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-account" class="nav-account"></div>
+        <button id="cart-btn" class="icon-btn cart-btn" aria-label="Open your order">
+          <svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg>
+          <span id="cart-badge" class="cart-badge" hidden>0</span>
+        </button>
+        <a href="#reservation" class="btn btn-primary nav-cta">Book a Table</a>
+        <button id="menu-toggle" class="icon-btn hamburger" aria-label="Open navigation menu" aria-expanded="false">
+          <svg class="icon" aria-hidden="true"><use href="#icon-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile navigation panel -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#best-sellers">Best Sellers</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#hours">Hours</a>
+    <a href="#feedback">Feedback</a>
+    <div id="mobile-nav-account" class="mobile-nav-account"></div>
+    <a href="#reservation" class="btn btn-primary mobile-cta">Book a Table</a>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <img id="hero-img" src="" alt="" loading="eager">
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-frame" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="eyebrow">Fine South Indian Dining &middot; Trichy</p>
+      <h1 class="hero-title">Oops! Life<br><span class="gradient-text">Cooked Again</span></h1>
+      <p class="hero-tagline">&ldquo;Life cooked you. So we cooked for you.&rdquo;</p>
+      <p class="hero-sub">We cook food better than your life.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-primary btn-lg">
+          <svg class="icon" aria-hidden="true"><use href="#icon-utensils"/></svg>
+          Explore the Menu
+        </a>
+        <a href="#reservation" class="btn btn-outline-gold btn-lg">Book a Table</a>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-hint" aria-label="Scroll down to About Us">
+      <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section pattern">
+    <div class="container about-grid">
+      <div class="about-portrait reveal">
+        <div class="arch-outer" aria-hidden="true"></div>
+        <div class="arch-frame">
+          <img id="about-img" src="" alt="Friends enjoying a warm meal together at a cozy restaurant table" loading="lazy">
+        </div>
+        <span class="arch-caption">Friends &middot; Food &middot; Memories</span>
+      </div>
+
+      <div class="about-content">
+        <div class="section-head left reveal">
+          <p class="eyebrow">Our Story</p>
+          <h2 class="section-title">Great food meets great friendships</h2>
+          <div class="ornament"><span class="ornament-line"></span><svg class="ornament-svg" width="140" height="20" viewBox="0 0 140 20" fill="none" aria-hidden="true"><circle cx="5" cy="10" r="1.5" fill="currentColor"/><path d="M9 10 H42" stroke="currentColor"/><path d="M42 10 C50 2.5, 58 2.5, 65 10" stroke="currentColor"/><rect x="66" y="6" width="8" height="8" transform="rotate(45 70 10)" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M75 10 C82 2.5, 90 2.5, 98 10" stroke="currentColor"/><path d="M98 10 H131" stroke="currentColor"/><circle cx="135" cy="10" r="1.5" fill="currentColor"/></svg><span class="ornament-line"></span></div>
+        </div>
+        <p class="lead reveal">&ldquo;Oops! Life Cooked Again&rdquo; is a friends-owned restaurant where great food meets great friendships. We are just a bunch of friends who love food and decided to turn our endless cravings into a restaurant. A few days ago, Oops! Life Cooked Again was born with one goal &mdash; to serve tasty food, share good vibes, and create happy memories. We cook food better than your life.</p>
+
+        <div class="stats-panel reveal">
+          <span class="corner c-tl" aria-hidden="true"></span><span class="corner c-tr" aria-hidden="true"></span>
+          <span class="corner c-bl" aria-hidden="true"></span><span class="corner c-br" aria-hidden="true"></span>
+          <div class="stat">
+            <svg class="icon" aria-hidden="true"><use href="#icon-utensils"/></svg>
+            <span class="stat-value">37+</span>
+            <span class="stat-label">Royal dishes &amp; brews</span>
+          </div>
+          <div class="stat">
+            <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+            <span class="stat-value">16 hrs</span>
+            <span class="stat-label">Serving daily, dawn to night</span>
+          </div>
+          <div class="stat">
+            <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg>
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Friendship-infused</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST SELLERS ============ -->
+  <section id="best-sellers" class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Crowd's Choice</p>
+        <h2 class="section-title">Best Sellers</h2>
+        <div class="ornament"><span class="ornament-line"></span><svg class="ornament-svg" width="140" height="20" viewBox="0 0 140 20" fill="none" aria-hidden="true"><circle cx="5" cy="10" r="1.5" fill="currentColor"/><path d="M9 10 H42" stroke="currentColor"/><path d="M42 10 C50 2.5, 58 2.5, 65 10" stroke="currentColor"/><rect x="66" y="6" width="8" height="8" transform="rotate(45 70 10)" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M75 10 C82 2.5, 90 2.5, 98 10" stroke="currentColor"/><path d="M98 10 H131" stroke="currentColor"/><circle cx="135" cy="10" r="1.5" fill="currentColor"/></svg><span class="ornament-line"></span></div>
+        <p class="section-desc">Your next favourite is already on the table.</p>
+      </div>
+
+      <p class="flame-note reveal">
+        <svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg>
+        Warning: these dishes disappear fast!
+      </p>
+
+      <div id="featured-grid" class="featured-grid"></div>
+
+      <div class="more-favourites reveal">
+        <p class="panel-label">More crowd favourites</p>
+        <div id="best-seller-list" class="price-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MENU & ONLINE ORDERING ============ -->
+  <section id="menu" class="section pattern">
+    <div class="container menu-container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Order Online &middot; Served at your table</p>
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-desc italic">Warning: choosing just one dish is impossible.</p>
+      </div>
+
+      <p class="order-hint reveal">
+        <svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg>
+        Tap <span class="hint-add">+ Add</span> on any dish to build your order, then check out with your table number.
+      </p>
+
+      <div id="menu-tabs" class="tabs" role="tablist" aria-label="Menu categories"></div>
+      <div id="menu-panels"></div>
+
+      <div id="order-summary-bar" class="order-summary" hidden>
+        <p id="order-summary-text"></p>
+        <button id="order-summary-btn" class="btn btn-primary" type="button">
+          <svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg>
+          Review Order &amp; Checkout
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">A Feast for the Eyes</p>
+        <h2 class="section-title">Royal Gallery</h2>
+        <div class="ornament"><span class="ornament-line"></span><svg class="ornament-svg" width="140" height="20" viewBox="0 0 140 20" fill="none" aria-hidden="true"><circle cx="5" cy="10" r="1.5" fill="currentColor"/><path d="M9 10 H42" stroke="currentColor"/><path d="M42 10 C50 2.5, 58 2.5, 65 10" stroke="currentColor"/><rect x="66" y="6" width="8" height="8" transform="rotate(45 70 10)" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M75 10 C82 2.5, 90 2.5, 98 10" stroke="currentColor"/><path d="M98 10 H131" stroke="currentColor"/><circle cx="135" cy="10" r="1.5" fill="currentColor"/></svg><span class="ornament-line"></span></div>
+        <p class="section-desc">Golden dishes, gilded moments &mdash; a glimpse of what awaits your table.</p>
+      </div>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ RESERVATION ============ -->
+  <section id="reservation" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Reserve Your Seat</p>
+        <h2 class="section-title">Book a Table</h2>
+        <div class="ornament"><span class="ornament-line"></span><svg class="ornament-svg" width="140" height="20" viewBox="0 0 140 20" fill="none" aria-hidden="true"><circle cx="5" cy="10" r="1.5" fill="currentColor"/><path d="M9 10 H42" stroke="currentColor"/><path d="M42 10 C50 2.5, 58 2.5, 65 10" stroke="currentColor"/><rect x="66" y="6" width="8" height="8" transform="rotate(45 70 10)" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M75 10 C82 2.5, 90 2.5, 98 10" stroke="currentColor"/><path d="M98 10 H131" stroke="currentColor"/><circle cx="135" cy="10" r="1.5" fill="currentColor"/></svg><span class="ornament-line"></span></div>
+        <p class="section-desc italic">&ldquo;Good food deserves a reserved seat. Book now!&rdquo;</p>
+      </div>
+
+      <div class="res-grid">
+        <aside class="res-aside">
+          <img id="interior-img" src="" alt="Elegant royal restaurant interior with black walls and golden accents" loading="lazy">
+          <div class="res-aside-content">
+            <p class="aside-item">
+              <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+              <span>Open daily 06:00 AM &ndash; 10:00 PM<br><small>(Saturday is our holiday)</small></span>
+            </p>
+            <p class="aside-item">
+              <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+              <span>Prefer to call?<br><a href="tel:+917010847158" class="gold-link">+91 7010847158</a></span>
+            </p>
+            <p class="aside-item">
+              <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+              <span>Groups larger than 20 or special occasions? Mention it in the notes &mdash; we will make it royal.</span>
+            </p>
+          </div>
+        </aside>
+
+        <form id="reservation-form" class="card form-card" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="res-name">Name <span class="req">*</span></label>
+              <input type="text" id="res-name" name="name" placeholder="Christy Sahaya Raja" autocomplete="name">
+              <p class="field-error" id="err-res-name" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="res-email">Email <span class="req">*</span></label>
+              <input type="email" id="res-email" name="email" placeholder="you@example.com" autocomplete="email">
+              <p class="field-error" id="err-res-email" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="res-phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="res-phone" name="phone" placeholder="7010847158" autocomplete="tel">
+              <p class="field-error" id="err-res-phone" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="res-guests">Number of Guests <span class="req">*</span></label>
+              <input type="number" id="res-guests" name="guests" min="1" max="20" value="2">
+              <p class="field-error" id="err-res-guests" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="res-date">Date <span class="req">*</span></label>
+              <input type="date" id="res-date" name="date">
+              <p class="field-error" id="err-res-date" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="res-time">Time <span class="req">*</span></label>
+              <input type="time" id="res-time" name="time" min="06:00" max="22:00">
+              <p class="field-error" id="err-res-time" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="res-seating">Seating Preference <span class="req">*</span></label>
+            <select id="res-seating" name="seating">
+              <option value="indoor">Indoor (Main dining room)</option>
+              <option value="outdoor">Outdoor (Patio)</option>
+              <option value="no_preference">No Preference</option>
+            </select>
+            <p class="field-error" id="err-res-seating" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="res-notes">Additional Notes</label>
+            <textarea id="res-notes" name="notes" rows="4" maxlength="500" placeholder="Any special requests or dietary restrictions?"></textarea>
+            <p class="field-error" id="err-res-notes" role="alert"></p>
+          </div>
+
+          <button type="submit" id="res-submit" class="btn btn-primary btn-lg btn-block">
+            <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            Book Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOURS & LOCATION ============ -->
+  <section id="hours" class="section section-alt pattern">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Find Us</p>
+        <h2 class="section-title">Hours &amp; Location</h2>
+        <div class="ornament"><span class="ornament-line"></span><svg class="ornament-svg" width="140" height="20" viewBox="0 0 140 20" fill="none" aria-hidden="true"><circle cx="5" cy="10" r="1.5" fill="currentColor"/><path d="M9 10 H42" stroke="currentColor"/><path d="M42 10 C50 2.5, 58 2.5, 65 10" stroke="currentColor"/><rect x="66" y="6" width="8" height="8" transform="rotate(45 70 10)" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M75 10 C82 2.5, 90 2.5, 98 10" stroke="currentColor"/><path d="M98 10 H131" stroke="currentColor"/><circle cx="135" cy="10" r="1.5" fill="currentColor"/></svg><span class="ornament-line"></span></div>
+        <p class="section-desc">Dawn to night, six days a week &mdash; the pots are always golden.</p>
+      </div>
+
+      <div class="hours-grid">
+        <div class="card contact-card">
+          <h3 class="card-title">Contact</h3>
+          <p class="contact-item">
+            <svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>
+            <span>2nd Bsc CS, St.Joseph's College(Autonomous) Trichy-620002</span>
+          </p>
+          <p class="contact-item">
+            <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+            <a href="tel:+917010847158">+91 7010847158</a>
+          </p>
+          <p class="contact-item">
+            <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+            <a href="mailto:oopslifecookedagain@gmail.com">oopslifecookedagain@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="card hours-card">
+          <h3 class="card-title">Opening Hours</h3>
+          <ul class="hours-list">
+            <li><span>Monday</span><span>06:00 AM - 10:00 PM</span></li>
+            <li><span>Tuesday</span><span>06:00 AM - 10:00 PM</span></li>
+            <li><span>Wednesday</span><span>06:00 AM - 10:00 PM</span></li>
+            <li><span>Thursday</span><span>06:00 AM - 10:00 PM</span></li>
+            <li><span>Friday</span><span>06:00 AM - 10:00 PM</span></li>
+            <li><span>Saturday</span><span class="holiday-badge">Holiday</span></li>
+            <li><span>Sunday</span><span>06:00 AM - 10:00 PM</span></li>
+          </ul>
+        </div>
+
+        <div class="card map-card">
+          <h3 class="card-title">On the Map</h3>
+          <iframe
+            title="Map showing the location of Oops! Life Cooked Again at St. Joseph's College, Trichy"
+            width="450"
+            height="300"
+            frameborder="0"
+            style="border:0"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB_LJOYJL-84SMuxNB7LtRGhxEQLjswvy0&language=en&region=cn&q=St+Joseph%27s+College,+Tiruchirappalli,+Tamil+Nadu,+India"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEEDBACK ============ -->
+  <section id="feedback" class="section">
+    <div class="container narrow">
+      <div class="section-head reveal">
+        <p class="eyebrow">Your Words, Our Spice</p>
+        <h2 class="section-title">Feedback</h2>
+        <div class="ornament"><span class="ornament-line"></span><svg class="ornament-svg" width="140" height="20" viewBox="0 0 140 20" fill="none" aria-hidden="true"><circle cx="5" cy="10" r="1.5" fill="currentColor"/><path d="M9 10 H42" stroke="currentColor"/><path d="M42 10 C50 2.5, 58 2.5, 65 10" stroke="currentColor"/><rect x="66" y="6" width="8" height="8" transform="rotate(45 70 10)" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M75 10 C82 2.5, 90 2.5, 98 10" stroke="currentColor"/><path d="M98 10 H131" stroke="currentColor"/><circle cx="135" cy="10" r="1.5" fill="currentColor"/></svg><span class="ornament-line"></span></div>
+        <p class="section-desc italic">&ldquo;Life cooked you again? Tell us if we cooked it better!&rdquo;</p>
+      </div>
+
+      <form id="feedback-form" class="card form-card corners-card" novalidate>
+        <span class="corner c-tl" aria-hidden="true"></span><span class="corner c-tr" aria-hidden="true"></span>
+        <span class="corner c-bl" aria-hidden="true"></span><span class="corner c-br" aria-hidden="true"></span>
+        <div class="form-row">
+          <div class="field">
+            <label for="fb-name">Name <span class="req">*</span></label>
+            <input type="text" id="fb-name" name="name" placeholder="Christy Sahaya Raja" autocomplete="name">
+            <p class="field-error" id="err-fb-name" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="fb-email">Email <span class="req">*</span></label>
+            <input type="email" id="fb-email" name="email" placeholder="you@example.com" autocomplete="email">
+            <p class="field-error" id="err-fb-email" role="alert"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fb-message">Your Feedback <span class="req">*</span></label>
+          <textarea id="fb-message" name="message" rows="5" maxlength="1000" placeholder="Share your experience, suggestions, or any comments here..."></textarea>
+          <p class="field-error" id="err-fb-message" role="alert"></p>
+        </div>
+        <button type="submit" id="fb-submit" class="btn btn-primary btn-lg btn-block">
+          <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg>
+          Submit Feedback
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-quote">&ldquo;Life may cook you every day, but we&rsquo;ll always cook something that makes you smile.&rdquo;</p>
+      <div class="ornament footer-ornament"><span class="ornament-line"></span><svg class="ornament-svg" width="140" height="20" viewBox="0 0 140 20" fill="none" aria-hidden="true"><circle cx="5" cy="10" r="1.5" fill="currentColor"/><path d="M9 10 H42" stroke="currentColor"/><path d="M42 10 C50 2.5, 58 2.5, 65 10" stroke="currentColor"/><rect x="66" y="6" width="8" height="8" transform="rotate(45 70 10)" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M75 10 C82 2.5, 90 2.5, 98 10" stroke="currentColor"/><path d="M98 10 H131" stroke="currentColor"/><circle cx="135" cy="10" r="1.5" fill="currentColor"/></svg><span class="ornament-line"></span></div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-heading">Visit Us</h3>
+          <p class="footer-item">
+            <svg class="icon" aria-hidden="true"><use href="#icon-pin"/></svg>
+            <span>2nd Bsc CS, St.Joseph's College(Autonomous) Trichy-620002</span>
+          </p>
+          <p class="footer-item">
+            <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+            <a href="tel:+917010847158">+91 7010847158</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Contact</h3>
+          <p class="footer-item">
+            <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+            <a href="mailto:lifecookedagain@gmail.com">lifecookedagain@gmail.com</a>
+          </p>
+          <p class="footer-item">
+            <svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Hours</h3>
+          <p class="footer-item">Mon &ndash; Fri: 06:00 AM - 10:00 PM</p>
+          <p class="footer-item">Saturday: Holiday</p>
+          <p class="footer-item">Sunday: 06:00 AM - 10:00 PM</p>
+        </div>
+      </div>
+
+      <div class="footer-hairline" aria-hidden="true"></div>
+      <p class="footer-thanks">Thank you for dining with us!</p>
+      <p class="footer-copyright">&copy; 2026 Oops! Life Cooked Again. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div id="cart-overlay" class="overlay" hidden></div>
+  <aside id="cart-drawer" class="cart-drawer" aria-hidden="true" aria-label="Your order">
+    <div class="drawer-head">
+      <div class="drawer-head-text">
+        <h3 class="drawer-title">
+          <svg class="icon" aria-hidden="true"><use href="#icon-bag"/></svg>
+          Your Royal Order
+        </h3>
+        <p id="cart-subtitle" class="drawer-sub">Your order awaits its first dish.</p>
+      </div>
+      <button id="cart-close" class="icon-btn" aria-label="Close order">
+        <svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg>
+      </button>
+    </div>
+
+    <div id="cart-empty" class="cart-empty">
+      <svg class="icon big-icon" aria-hidden="true"><use href="#icon-utensils"/></svg>
+      <p>Your order is empty &mdash; life may have cooked you, but nothing is cooking yet!</p>
+      <a href="#menu" id="cart-empty-link" class="btn btn-primary">Browse the Menu</a>
+    </div>
+
+    <div id="cart-scroll" class="cart-scroll" hidden>
+      <div id="cart-items"></div>
+    </div>
+
+    <div id="cart-checkout" class="cart-checkout" hidden>
+      <div class="cart-total-row">
+        <span>Order Total</span>
+        <strong id="cart-total">&#8377;0</strong>
+      </div>
+      <form id="checkout-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="co-table">Table No. <span class="req">*</span></label>
+            <input type="text" id="co-table" placeholder="12" maxlength="10">
+            <p class="field-error" id="err-co-table" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="co-name">Your Name <span class="req">*</span></label>
+            <input type="text" id="co-name" placeholder="Christy" maxlength="80">
+            <p class="field-error" id="err-co-name" role="alert"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="co-phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="co-phone" placeholder="7010847158">
+          <p class="field-error" id="err-co-phone" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="co-notes">Order Notes (optional)</label>
+          <textarea id="co-notes" rows="2" maxlength="500" placeholder="Anything else the kitchen should know?"></textarea>
+        </div>
+        <button type="submit" id="place-order-btn" class="btn btn-primary btn-lg btn-block">
+          <svg class="icon" aria-hidden="true"><use href="#icon-utensils"/></svg>
+          <span id="place-order-label">Place Order</span>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- ============ ORDER SUCCESS MODAL ============ -->
+  <div id="order-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+    <div class="modal-card corners-card">
+      <span class="corner c-tl" aria-hidden="true"></span><span class="corner c-tr" aria-hidden="true"></span>
+      <span class="corner c-bl" aria-hidden="true"></span><span class="corner c-br" aria-hidden="true"></span>
+      <div class="modal-icon">
+        <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
+      </div>
+      <h3 id="order-modal-title" class="modal-title">Order Placed Successfully!</h3>
+      <p class="modal-text">The kitchen has been notified by email and will start cooking shortly.</p>
+      <div class="order-confirm">
+        <p class="order-confirm-label">Order No.</p>
+        <p id="order-confirm-number" class="order-confirm-number">#1001</p>
+        <p id="order-confirm-details" class="order-confirm-details">Table 7 &middot; Total &#8377;185</p>
+      </div>
+      <button id="order-modal-close" class="btn btn-primary btn-lg">Bon App&eacute;tit!</button>
+    </div>
+  </div>
+
+  <!-- ============ GALLERY LIGHTBOX ============ -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+    <button id="lb-close" class="lb-btn lb-close" aria-label="Close gallery">&times;</button>
+    <button id="lb-prev" class="lb-btn lb-prev" aria-label="Previous image">&#8249;</button>
+    <figure class="lb-figure">
+      <img id="lb-image" src="" alt="">
+      <figcaption id="lb-caption"></figcaption>
+    </figure>
+    <button id="lb-next" class="lb-btn lb-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="menu-store.js"></script>
+  <script src="gallery-store.js"></script>
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

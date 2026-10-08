@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Oops! Life Cooked Again</title>
+  <meta name="description" content="Sign in to the Oops! Life Cooked Again portal. The first account created becomes the Admin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body pattern">
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="icon-loader" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></symbol>
+    <symbol id="icon-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+  </svg>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <main class="auth-wrap">
+    <a href="index.html" class="auth-brand">
+      <span class="brand-mark" aria-hidden="true"><span class="brand-mark-inner">O!</span></span>
+      <span class="auth-brand-name">Oops! Life Cooked Again</span>
+    </a>
+
+    <div class="card auth-card corners-card">
+      <span class="corner c-tl" aria-hidden="true"></span><span class="corner c-tr" aria-hidden="true"></span>
+      <span class="corner c-bl" aria-hidden="true"></span><span class="corner c-br" aria-hidden="true"></span>
+
+      <!-- Already signed in -->
+      <div id="auth-signedin" class="auth-signedin" hidden>
+        <div class="auth-signedin-icon">
+          <svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>
+        </div>
+        <h1 class="auth-title">Welcome back, <span id="signedin-name"></span></h1>
+        <p id="signedin-role" class="auth-sub"></p>
+        <div class="auth-signedin-actions">
+          <a id="signedin-admin" class="btn btn-primary btn-lg" href="admin.html">
+            <svg class="icon" aria-hidden="true"><use href="#icon-utensils"/></svg>
+            Go to Admin Panel
+          </a>
+          <a href="index.html" class="btn btn-outline-gold btn-lg">Back to Site</a>
+          <button id="signedin-logout" type="button" class="btn btn-outline-gold btn-lg">Logout</button>
+        </div>
+      </div>
+
+      <!-- Sign in / Register -->
+      <div id="auth-forms">
+        <h1 class="auth-title">Welcome</h1>
+        <p class="auth-sub">Sign in to manage the menu &mdash; or keep ordering like royalty.</p>
+
+        <div class="tabs auth-tabs" role="tablist" aria-label="Authentication">
+          <button type="button" class="tab-btn active" data-auth-tab="signin" role="tab" aria-selected="true" id="tab-signin">Sign In</button>
+          <button type="button" class="tab-btn" data-auth-tab="register" role="tab" aria-selected="false" id="tab-register">Create Account</button>
+        </div>
+
+        <form id="signin-form" class="auth-form" novalidate>
+          <div class="field">
+            <label for="si-email">Email <span class="req">*</span></label>
+            <input type="email" id="si-email" autocomplete="email" placeholder="you@example.com">
+            <p class="field-error" id="err-si-email" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="si-password">Password <span class="req">*</span></label>
+            <input type="password" id="si-password" autocomplete="current-password" placeholder="Your password">
+            <p class="field-error" id="err-si-password" role="alert"></p>
+          </div>
+          <button type="submit" id="signin-submit" class="btn btn-primary btn-lg btn-block">
+            <svg class="icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+            Sign In
+          </button>
+        </form>
+
+        <form id="register-form" class="auth-form" hidden novalidate>
+          <div id="first-admin-note" class="admin-notice" hidden>
+            <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
+            <div>
+              <strong>You will be the first user &mdash; this account becomes the ADMIN.</strong>
+              <span>As Admin you can change dishes and prices in the Admin Panel.</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="rg-name">Full Name <span class="req">*</span></label>
+            <input type="text" id="rg-name" autocomplete="name" placeholder="Christy Sahaya Raja">
+            <p class="field-error" id="err-rg-name" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="rg-email">Email <span class="req">*</span></label>
+            <input type="email" id="rg-email" autocomplete="email" placeholder="you@example.com">
+            <p class="field-error" id="err-rg-email" role="alert"></p>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="rg-password">Password <span class="req">*</span></label>
+              <input type="password" id="rg-password" autocomplete="new-password" placeholder="Min. 6 characters">
+              <p class="field-error" id="err-rg-password" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="rg-confirm">Confirm <span class="req">*</span></label>
+              <input type="password" id="rg-confirm" autocomplete="new-password" placeholder="Repeat password">
+              <p class="field-error" id="err-rg-confirm" role="alert"></p>
+            </div>
+          </div>
+          <button type="submit" id="register-submit" class="btn btn-primary btn-lg btn-block">
+            <svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>
+            Create Account
+          </button>
+        </form>
+
+        <p class="auth-note">The very first account created becomes the <strong>Admin</strong> of this website.</p>
+      </div>
+    </div>
+
+    <a href="index.html" class="auth-back">&larr; Back to the restaurant</a>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var byId = function (id) { return document.getElementById(id); };
+
+      function fieldError(inputId, errId, msg) {
+        var input = byId(inputId), err = byId(errId);
+        if (msg) {
+          input.classList.add('invalid');
+          err.textContent = msg;
+          err.classList.add('visible');
+          return false;
+        }
+        input.classList.remove('invalid');
+        err.textContent = '';
+        err.classList.remove('visible');
+        return true;
+      }
+
+      function setBusy(btn, busy, original) {
+        btn.disabled = busy;
+        btn.innerHTML = busy
+          ? '<svg class="icon spin" aria-hidden="true"><use href="#icon-loader"/></svg><span>Please wait&hellip;</span>'
+          : original;
+      }
+
+      document.addEventListener('DOMContentLoaded', async function () {
+        await authReady;
+        // Already signed in?
+        var user = getCurrentUser();
+        if (user) {
+          byId('auth-forms').hidden = true;
+          byId('auth-signedin').hidden = false;
+          byId('signedin-name').textContent = user.name.split(' ')[0];
+          byId('signedin-role').textContent = isAdminUser(user)
+            ? 'You are signed in as the Admin of this website.'
+            : 'You are signed in to the restaurant.';
+          if (!isAdminUser(user)) byId('signedin-admin').hidden = true;
+          byId('signedin-logout').addEventListener('click', async function () {
+            await logoutUser();
+            window.location.reload();
+          });
+          return;
+        }
+
+        // First-user-becomes-admin notice.
+        byId('first-admin-note').hidden = await hasAnyUsers();
+
+        // Tabs.
+        var tabBtns = document.querySelectorAll('[data-auth-tab]');
+        Array.prototype.forEach.call(tabBtns, function (btn) {
+          btn.addEventListener('click', function () {
+            Array.prototype.forEach.call(tabBtns, function (b) {
+              var active = b === btn;
+              b.classList.toggle('active', active);
+              b.setAttribute('aria-selected', String(active));
+            });
+            byId('signin-form').hidden = btn.dataset.authTab !== 'signin';
+            byId('register-form').hidden = btn.dataset.authTab !== 'register';
+          });
+        });
+
+        // Sign in.
+        byId('signin-form').addEventListener('submit', async function (e) {
+          e.preventDefault();
+          var email = byId('si-email').value.trim();
+          var password = byId('si-password').value;
+          var ok = true;
+          ok = fieldError('si-email', 'err-si-email', AUTH_EMAIL_RE.test(email) ? '' : 'Please enter a valid email address.') && ok;
+          ok = fieldError('si-password', 'err-si-password', password ? '' : 'Please enter your password.') && ok;
+          if (!ok) return;
+
+          var btn = byId('signin-submit');
+          var original = btn.innerHTML;
+          setBusy(btn, true);
+          var result = await loginUser(email, password);
+          setBusy(btn, false, original);
+
+          if (!result.ok) {
+            notify('Sign in failed', result.error, 'error');
+            return;
+          }
+          notify('Welcome back, ' + result.user.name.split(' ')[0] + '!', isAdminUser(result.user) ? 'Opening the Admin Panel\u2026' : 'Opening the restaurant\u2026');
+          setTimeout(function () {
+            window.location.href = isAdminUser(result.user) ? 'admin.html' : 'index.html';
+          }, 800);
+        });
+
+        // Register.
+        byId('register-form').addEventListener('submit', async function (e) {
+          e.preventDefault();
+          var name = byId('rg-name').value.trim();
+          var email = byId('rg-email').value.trim();
+          var password = byId('rg-password').value;
+          var confirm = byId('rg-confirm').value;
+          var ok = true;
+          ok = fieldError('rg-name', 'err-rg-name', name.length >= 2 ? '' : 'Please enter your full name.') && ok;
+          ok = fieldError('rg-email', 'err-rg-email', AUTH_EMAIL_RE.test(email) ? '' : 'Please enter a valid email address.') && ok;
+          ok = fieldError('rg-password', 'err-rg-password', password.length >= 6 ? '' : 'Password must be at least 6 characters.') && ok;
+          ok = fieldError('rg-confirm', 'err-rg-confirm', password === confirm ? '' : 'Passwords do not match.') && ok;
+          if (!ok) return;
+
+          var btn = byId('register-submit');
+          var original = btn.innerHTML;
+          setBusy(btn, true);
+          var result = await registerUser(name, email, password);
+          setBusy(btn, false, original);
+
+          if (!result.ok) {
+            notify('Registration failed', result.error, 'error');
+            return;
+          }
+          if (result.needsConfirm) {
+            notify('Check your email', 'We sent a confirmation link to ' + email + '. Click it, then sign in.');
+            byId('register-form').reset();
+            document.getElementById('tab-signin').click();
+            return;
+          }
+          if (isAdminUser(result.user)) {
+            notify('Account created \u2014 you are the Admin!', 'You can now change dishes and prices. Opening the Admin Panel\u2026');
+          } else {
+            notify('Account created!', 'Welcome to Oops! Life Cooked Again. Opening the restaurant\u2026');
+          }
+          setTimeout(function () {
+            window.location.href = isAdminUser(result.user) ? 'admin.html' : 'index.html';
+          }, 900);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
